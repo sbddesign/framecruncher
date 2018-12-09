@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Framecruncher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="main">
+        <h1>Framecruncher</h1>
+
+        <p>This is a simple tool for calculating what bitrate you should use when encoding video. This is by no means
+        an exhaustive guide to video encoding and the number it spits out may not be applicable in all situations.</p>
+
+        <h2>Instructions</h2>
+
+        <ol>
+            <li>Type in your desired file size for the end video file.</li>
+            <li>Look at the timecode of your video. Let's say for example it's 00:30:20 (30 minutes, 20 seconds).</li>
+            <li>Type the minutes from that timecode into the "Minutes in video" field</li>
+            <li>Type the seconds from that timecode into the "Seconds in video" field</li>
+            <li>Crunch the numbers!</li>
+        </ol>
+
+
+        <form>
+            <label>Desired File Size (GB)</label><br />
+            <input type="number" id="desiredSize" name="desiredSize" value="1" /><br />
+
+            <label>Minutes in video</label><br />
+            <input type="number" id="videoMinutes" value="30" /><br />
+
+            <label>Seconds in video</label><br />
+            <input type="number" id="videoSeconds" value="20" /><br />
+
+            <button type="button" id="submit" value="Let's crunch the frambers!">Let's crunch the numbers!</button>
+        </form>
+
+        <div id="result">
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
