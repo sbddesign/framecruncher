@@ -1,25 +1,30 @@
 (function() {
 
+    // Declaring Variables
+    var desiredSize     = document.getElementById("desiredSize"),
+        videoMinutes    = document.getElementById("videoMinutes"),
+        videoSeconds    = document.getElementById("videoSeconds"),
+        desiredSizeInMegabits,
+        videoLengthInSeconds,
+        result;
 
-    function framecruncher() {
 
-        // Declaring Variables
-        var desiredSize     = document.getElementById("desiredSize").value,
-            videoMinutes    = document.getElementById("videoMinutes").value,
-            videoSeconds    = document.getElementById("videoSeconds").value;
+    function framecruncher(desiredSize, videoMinutes, videoSeconds) {
 
-        var desiredSizeInMegabits = desiredSize*8*1024;
-        var videoLengthInSeconds = (parseFloat(videoMinutes) * 60) + parseFloat(videoSeconds);
-        var result = desiredSizeInMegabits / videoLengthInSeconds;
+        desiredSizeInMegabits = desiredSize*8*1024;
+        videoLengthInSeconds = (parseFloat(videoMinutes) * 60) + parseFloat(videoSeconds);
+        result = desiredSizeInMegabits / videoLengthInSeconds;
 
-        document.getElementById("result").innerHTML = 'Use a maximum bitrate of ' + result + ' Mbps';
+        document.getElementById("result").innerHTML = 'Use a maximum bitrate of ' + result.toFixed(1) + ' Mbps';
 
     }
 
-    framecruncher();
+    framecruncher(desiredSize.value, videoMinutes.value, videoSeconds.value);
 
 
-    document.getElementById("submit").addEventListener("click", framecruncher);
+    document.getElementById("submit").addEventListener("click", function(){
+        framecruncher(desiredSize.value, videoMinutes.value, videoSeconds.value);
+    });
 
 })();
 
